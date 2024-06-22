@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ayudaxd","l":"DatabaseConnection"},{"p":"ayudaxd","l":"inicioxd2"}];updateSearchResults();
