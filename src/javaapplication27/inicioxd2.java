@@ -56,6 +56,7 @@ public class inicioxd2 extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         Retirar2 = new javax.swing.JButton();
         factura = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         PanLista = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -307,24 +308,33 @@ public class inicioxd2 extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout PanRetiraLayout = new javax.swing.GroupLayout(PanRetira);
         PanRetira.setLayout(PanRetiraLayout);
         PanRetiraLayout.setHorizontalGroup(
             PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanRetiraLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(PanRetiraLayout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Retirar2)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(123, 123, 123)
                 .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(factura)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(125, Short.MAX_VALUE))
+                    .addGroup(PanRetiraLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(PanRetiraLayout.createSequentialGroup()
+                        .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanRetiraLayout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Retirar2)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(123, 123, 123)
+                                .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(factura)
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(PanRetiraLayout.createSequentialGroup()
+                                .addGap(239, 239, 239)
+                                .addComponent(jButton1)))
+                        .addGap(0, 119, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         PanRetiraLayout.setVerticalGroup(
             PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,7 +349,9 @@ public class inicioxd2 extends javax.swing.JFrame {
                 .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Retirar2)
                     .addComponent(factura))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(70, 70, 70))
         );
 
         jTabbedPane1.addTab("tab2", PanRetira);
@@ -443,6 +455,7 @@ public class inicioxd2 extends javax.swing.JFrame {
     private javax.swing.JButton Retirar2;
     private javax.swing.JButton factura;
     private javax.swing.JButton ingresar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
