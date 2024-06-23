@@ -30,8 +30,6 @@ public class inicio extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         salir = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         PanIngresar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         nombretxt = new javax.swing.JTextField();
@@ -55,13 +53,15 @@ public class inicio extends javax.swing.JFrame {
         factura = new javax.swing.JButton();
         PanLista = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(64, 64, 64));
 
-        ingresar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ingresar.setFont(new java.awt.Font("Consolas", 0, 17)); // NOI18N
         ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/promoviendo.png"))); // NOI18N
         ingresar.setText("Ingresar");
         ingresar.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +70,7 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
-        retirar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        retirar.setFont(new java.awt.Font("Consolas", 0, 17)); // NOI18N
         retirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alquiler-de-coches.png"))); // NOI18N
         retirar.setText("Retirar");
         retirar.setToolTipText("");
@@ -80,7 +80,7 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
-        listar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        listar.setFont(new java.awt.Font("Consolas", 0, 17)); // NOI18N
         listar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alquiler-de-coches (1).png"))); // NOI18N
         listar.setText("Listar");
         listar.addActionListener(new java.awt.event.ActionListener() {
@@ -89,11 +89,12 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Consolas", 0, 19)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Menu de Navegación");
 
+        salir.setFont(new java.awt.Font("Consolas", 0, 17)); // NOI18N
         salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salida.png"))); // NOI18N
         salir.setText("Salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +109,7 @@ public class inicio extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -138,24 +139,6 @@ public class inicio extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 500));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Diseño sin título.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 4, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab4", jPanel5);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -360,6 +343,24 @@ public class inicio extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab3", PanLista);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Diseño sin título (1).png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab4", jPanel5);
+
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, -31, 600, 530));
 
         pack();
@@ -444,7 +445,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
