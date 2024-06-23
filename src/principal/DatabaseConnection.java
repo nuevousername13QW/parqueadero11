@@ -27,7 +27,7 @@ public class DatabaseConnection {
 
     con = null;
 
-    con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/parqueadero","root","Alejandro134456QW_");
+    con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/parqueadero","root","David%2006");
     if(con!=null){
     }
     return con;
