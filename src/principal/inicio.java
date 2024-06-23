@@ -3,7 +3,9 @@ package principal;
 
 import DAO.CarroDAO;
 import DAO.EntradaDAO;
+import DAO.EspacioDAO;
 import DAO.PersonasDAO;
+import java.math.BigInteger;
 
 /**
  *
@@ -412,9 +414,9 @@ public class inicio extends javax.swing.JFrame {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
             Personas persona = new Personas();
-            persona.setid(Integer.parseInt((identificaciontxt.getText())));
+            persona.setid(new BigInteger(identificaciontxt.getText()));
             persona.setNombre(nombretxt.getText());
-            persona.setTelefono(Integer.parseInt((telefonotxt.getText())));
+            persona.setTelefono(new BigInteger((telefonotxt.getText())));
             PersonasDAO personaDAO = new PersonasDAO();
             personaDAO.insertarPersona(persona);
         
@@ -426,6 +428,11 @@ public class inicio extends javax.swing.JFrame {
             carro.setid(Integer.parseInt((identificaciontxt.getText())));
             CarroDAO carroDAO = new CarroDAO();
             carroDAO.insertarCarro(carro);
+            
+            Espacio espacio = new Espacio();
+            espacio.setid(Integer.parseInt((espacio_id.getText())));
+            EspacioDAO espacioDAO = new EspacioDAO();
+            espacioDAO.insertarEspacio(espacio);
             
             Entrada entrada = new Entrada();
             entrada.setid(Integer.parseInt((espacio_id.getText())));

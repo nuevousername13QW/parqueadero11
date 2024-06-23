@@ -4,22 +4,24 @@
  */
 package principal;
 
+import java.math.BigInteger;
+
 /**
  *
  * @author Trabajo
  */
 public class Personas {
-    private int id;
+    private BigInteger id;
     private String Nombre;
-    private int Telefono;
+    private BigInteger Telefono;
 
     // Getters y Setters
 
-    public int getid() {
+    public BigInteger getid() {
         return id;
     }
 
-    public void setid(int id) {
+    public void setid(BigInteger id) {
         this.id = id;
     }
 
@@ -32,11 +34,11 @@ public class Personas {
         this.Nombre = Nombre;
     }
 
-    public int getTelefono() {
+    public BigInteger getTelefono() {
         return Telefono;
     }
 
-    public void setTelefono(int Telefono) {
+    public void setTelefono(BigInteger Telefono) {
         this.Telefono = Telefono;
     }
 }
