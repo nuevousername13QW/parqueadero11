@@ -9,6 +9,7 @@ package principal;
  * @author Trabajo
  */
 public class Carros {
+    private int id;
     private String placa;
     private String marca;
     private String modelo;
@@ -16,6 +17,14 @@ public class Carros {
 
 
     // Getters y Setters
+    public int getid() {
+        return id;
+    }
+
+    public void setid(int id) {
+        this.id = id;
+    }
+    
     public String getplaca() {
         return placa;
     }
