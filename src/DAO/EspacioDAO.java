@@ -4,23 +4,22 @@
  */
 package DAO;
 
-import principal.DatabaseConnection;
-import principal.Personas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import principal.DatabaseConnection;
+import principal.Espacio;
+
 /**
  *
  * @author Trabajo
  */
-public class PersonasDAO {
-    public void insertarPersona(Personas persona) {
-        String sql = "INSERT INTO personas (persona_id,nombre,telefono) VALUES (?, ?, ?)";
+public class EspacioDAO {
+    public void insertarEspacio(Espacio espacio) {
+        String sql = "INSERT INTO espacio (espacio_id) VALUES ( ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setObject(1, persona.getid());
-            pstmt.setString(2, persona.getNombre());
-            pstmt.setObject(3, persona.getTelefono());
+            pstmt.setInt(1, espacio.getid());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
