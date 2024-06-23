@@ -3,9 +3,10 @@ package principal;
 
 import DAO.CarroDAO;
 import DAO.EntradaDAO;
-import DAO.EspacioDAO;
 import DAO.PersonasDAO;
-import java.math.BigInteger;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,9 +17,10 @@ public class inicio extends javax.swing.JFrame {
     
     /**
      * Creates new form inicioxd2
-     */
-    public inicio() {
+     */RellenarCombox re = new RellenarCombox();
+    public inicio() throws SQLException {
         initComponents();
+        re.rellenarComboBox("espacio", "espacio_id", jComboespacio);
     }
 
     /**
@@ -58,6 +60,7 @@ public class inicio extends javax.swing.JFrame {
         identificaciontxt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         espacio_id = new javax.swing.JTextField();
+        jComboespacio = new javax.swing.JComboBox<>();
         PanRetira = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
@@ -266,7 +269,9 @@ public class inicio extends javax.swing.JFrame {
                         .addGap(80, 80, 80)
                         .addComponent(jLabel9)
                         .addGap(55, 55, 55)
-                        .addComponent(espacio_id, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboespacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(espacio_id, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         PanIngresarLayout.setVerticalGroup(
@@ -302,7 +307,9 @@ public class inicio extends javax.swing.JFrame {
                 .addGroup(PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(espacio_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
+                .addGap(24, 24, 24)
+                .addComponent(jComboespacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -414,9 +421,9 @@ public class inicio extends javax.swing.JFrame {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
             Personas persona = new Personas();
-            persona.setid(new BigInteger(identificaciontxt.getText()));
+            persona.setid(Integer.parseInt((identificaciontxt.getText())));
             persona.setNombre(nombretxt.getText());
-            persona.setTelefono(new BigInteger((telefonotxt.getText())));
+            persona.setTelefono(Integer.parseInt((telefonotxt.getText())));
             PersonasDAO personaDAO = new PersonasDAO();
             personaDAO.insertarPersona(persona);
         
@@ -428,11 +435,6 @@ public class inicio extends javax.swing.JFrame {
             carro.setid(Integer.parseInt((identificaciontxt.getText())));
             CarroDAO carroDAO = new CarroDAO();
             carroDAO.insertarCarro(carro);
-            
-            Espacio espacio = new Espacio();
-            espacio.setid(Integer.parseInt((espacio_id.getText())));
-            EspacioDAO espacioDAO = new EspacioDAO();
-            espacioDAO.insertarEspacio(espacio);
             
             Entrada entrada = new Entrada();
             entrada.setid(Integer.parseInt((espacio_id.getText())));
@@ -479,7 +481,11 @@ public class inicio extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new inicio().setVisible(true);
+            try {
+                new inicio().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
@@ -494,6 +500,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JButton factura;
     private javax.swing.JTextField identificaciontxt;
     private javax.swing.JButton ingresar;
+    private javax.swing.JComboBox<String> jComboespacio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
