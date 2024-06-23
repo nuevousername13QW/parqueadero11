@@ -1,5 +1,9 @@
 
 package principal;
+
+import DAO.CarroDAO;
+import DAO.PersonasDAO;
+
 /**
  *
  * @author delga
@@ -406,7 +410,23 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        // TODO add your handling code here:
+            Personas persona = new Personas();
+            persona.setid(Integer.parseInt((identificaciontxt.getText())));
+            persona.setNombre(nombretxt.getText());
+            persona.setTelefono(Integer.parseInt((telefonotxt.getText())));
+            PersonasDAO personaDAO = new PersonasDAO();
+            personaDAO.insertarPersona(persona);
+        
+            Carros carro = new Carros();
+            carro.setplaca(placatxt.getText());
+            carro.setmodelo(modelotxt.getText());
+            carro.setmarca(marcatxt.getText());
+            carro.setcolor(colortxt.getText());
+            carro.setid(Integer.parseInt((identificaciontxt.getText())));
+            CarroDAO carroDAO = new CarroDAO();
+            carroDAO.insertarCarro(carro);
+            
+            
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void marcatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcatxtActionPerformed
