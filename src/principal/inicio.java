@@ -2,6 +2,7 @@
 package principal;
 
 import DAO.CarroDAO;
+import DAO.EntradaDAO;
 import DAO.PersonasDAO;
 
 /**
@@ -54,7 +55,7 @@ public class inicio extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         identificaciontxt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        espacio_id = new javax.swing.JTextField();
         PanRetira = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
@@ -263,7 +264,7 @@ public class inicio extends javax.swing.JFrame {
                         .addGap(80, 80, 80)
                         .addComponent(jLabel9)
                         .addGap(55, 55, 55)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(espacio_id, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         PanIngresarLayout.setVerticalGroup(
@@ -298,7 +299,7 @@ public class inicio extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(espacio_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
@@ -426,7 +427,11 @@ public class inicio extends javax.swing.JFrame {
             CarroDAO carroDAO = new CarroDAO();
             carroDAO.insertarCarro(carro);
             
-            
+            Entrada entrada = new Entrada();
+            entrada.setid(Integer.parseInt((espacio_id.getText())));
+            entrada.setplaca(placatxt.getText());
+            EntradaDAO entradaDAO = new EntradaDAO();
+            entradaDAO.insertarEntrada(entrada);
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void marcatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcatxtActionPerformed
@@ -478,6 +483,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel PanRetira;
     private javax.swing.JButton Retirar2;
     public javax.swing.JTextField colortxt;
+    private javax.swing.JTextField espacio_id;
     private javax.swing.JButton factura;
     private javax.swing.JTextField identificaciontxt;
     private javax.swing.JButton ingresar;
@@ -498,7 +504,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JButton listar;
     public javax.swing.JTextField marcatxt;
