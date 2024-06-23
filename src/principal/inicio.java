@@ -4,6 +4,7 @@ package principal;
 import DAO.CarroDAO;
 import DAO.EntradaDAO;
 import DAO.PersonasDAO;
+import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,10 +18,9 @@ public class inicio extends javax.swing.JFrame {
     
     /**
      * Creates new form inicioxd2
-     */RellenarCombox re = new RellenarCombox();
-    public inicio() throws SQLException {
+     */
+    public inicio()  {
         initComponents();
-        re.rellenarComboBox("espacio", "espacio_id", jComboespacio);
     }
 
     /**
@@ -421,9 +421,9 @@ public class inicio extends javax.swing.JFrame {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
             Personas persona = new Personas();
-            persona.setid(Integer.parseInt((identificaciontxt.getText())));
+            persona.setid(new BigInteger((identificaciontxt.getText())));
             persona.setNombre(nombretxt.getText());
-            persona.setTelefono(Integer.parseInt((telefonotxt.getText())));
+            persona.setTelefono(new BigInteger((telefonotxt.getText())));
             PersonasDAO personaDAO = new PersonasDAO();
             personaDAO.insertarPersona(persona);
         
@@ -481,11 +481,7 @@ public class inicio extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            try {
-                new inicio().setVisible(true);
-            } catch (SQLException ex) {
-                Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            new inicio().setVisible(true);
         });
     }
 
