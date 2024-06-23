@@ -1,5 +1,10 @@
 
 package principal;
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author delga
@@ -10,8 +15,10 @@ public class inicio extends javax.swing.JFrame {
     /**
      * Creates new form inicioxd2
      */
-    public inicio() {
+    RellenarCombox re = new RellenarCombox();
+    public inicio() throws SQLException {
         initComponents();
+        re.rellenarComboBox("espacio", "espacio_id", jComboespacio);
     }
 
     /**
@@ -50,7 +57,7 @@ public class inicio extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         identificaciontxt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jComboespacio = new javax.swing.JComboBox<>();
         PanRetira = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
@@ -211,6 +218,12 @@ public class inicio extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Espacio asignado:");
 
+        jComboespacio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboespacioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanIngresarLayout = new javax.swing.GroupLayout(PanIngresar);
         PanIngresar.setLayout(PanIngresarLayout);
         PanIngresarLayout.setHorizontalGroup(
@@ -248,7 +261,7 @@ public class inicio extends javax.swing.JFrame {
                         .addGroup(PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
+                        .addGap(135, 135, 135)
                         .addGroup(PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(colortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(modelotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -258,9 +271,9 @@ public class inicio extends javax.swing.JFrame {
                     .addGroup(PanIngresarLayout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(jLabel9)
-                        .addGap(55, 55, 55)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addGap(80, 80, 80)
+                        .addComponent(jComboespacio, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanIngresarLayout.setVerticalGroup(
             PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +307,7 @@ public class inicio extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboespacio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
@@ -421,6 +434,9 @@ public class inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombretxtActionPerformed
 
+    private void jComboespacioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboespacioActionPerformed
+    }//GEN-LAST:event_jComboespacioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -447,7 +463,11 @@ public class inicio extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new inicio().setVisible(true);
+            try {
+                new inicio().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
@@ -461,6 +481,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JButton factura;
     private javax.swing.JTextField identificaciontxt;
     private javax.swing.JButton ingresar;
+    private javax.swing.JComboBox<String> jComboespacio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -478,7 +499,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JButton listar;
     public javax.swing.JTextField marcatxt;
