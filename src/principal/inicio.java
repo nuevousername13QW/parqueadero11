@@ -504,7 +504,6 @@ public class inicio extends javax.swing.JFrame {
             entrada.setid(Integer.parseInt((espacio_id.getText())));
             entrada.setplaca(placatxt.getText());
             
-            
             //inicializadores
             PersonaCarroDAO personasCarroDAO = new PersonaCarroDAO();
             personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);
@@ -522,6 +521,9 @@ public class inicio extends javax.swing.JFrame {
     espacio_id.setText("");
     
     actualizarTabla();
+            
+            PersonasCarroDAO personasCarroDAO = new PersonasCarroDAO();
+personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void marcatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcatxtActionPerformed
