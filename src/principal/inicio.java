@@ -72,11 +72,12 @@ public class inicio extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(64, 64, 64));
 
-        ingresar.setFont(new java.awt.Font("Consolas", 0, 17)); // NOI18N
+        ingresar.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
         ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/promoviendo.png"))); // NOI18N
         ingresar.setText("Ingresar");
         ingresar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +86,7 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
-        retirar.setFont(new java.awt.Font("Consolas", 0, 17)); // NOI18N
+        retirar.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
         retirar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alquiler-de-coches.png"))); // NOI18N
         retirar.setText("Retirar");
         retirar.setToolTipText("");
@@ -95,7 +96,7 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
-        listar.setFont(new java.awt.Font("Consolas", 0, 17)); // NOI18N
+        listar.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
         listar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alquiler-de-coches (1).png"))); // NOI18N
         listar.setText("Listar");
         listar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,12 +105,12 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Consolas", 0, 19)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Menu de Navegación");
 
-        salir.setFont(new java.awt.Font("Consolas", 0, 17)); // NOI18N
+        salir.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
         salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salida.png"))); // NOI18N
         salir.setText("Salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +174,10 @@ public class inicio extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab4", jPanel5);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        PanIngresar.setBackground(new java.awt.Color(217, 200, 169));
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Ingresar Vehiculos al Parqueadero");
 
@@ -184,13 +188,16 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Placa:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Color:");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Marca:");
 
         marcatxt.addActionListener(new java.awt.event.ActionListener() {
@@ -199,10 +206,11 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Nombre propietario:");
 
-        Guardar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Guardar.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,16 +218,20 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Modelo:");
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Telefono:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("N° Identificación:");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Espacio asignado:");
 
         javax.swing.GroupLayout PanIngresarLayout = new javax.swing.GroupLayout(PanIngresar);
@@ -238,10 +250,6 @@ public class inicio extends javax.swing.JFrame {
                     .addComponent(telefonotxt, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                     .addComponent(identificaciontxt))
                 .addGap(160, 160, 160))
-            .addGroup(PanIngresarLayout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(PanIngresarLayout.createSequentialGroup()
                 .addGroup(PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanIngresarLayout.createSequentialGroup()
@@ -264,14 +272,17 @@ public class inicio extends javax.swing.JFrame {
                             .addComponent(colortxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(modelotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PanIngresarLayout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanIngresarLayout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(jLabel9)
                         .addGap(55, 55, 55)
-                        .addComponent(espacio_id, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addComponent(espacio_id, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanIngresarLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jLabel1))
+                    .addGroup(PanIngresarLayout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addComponent(Guardar)))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         PanIngresarLayout.setVerticalGroup(
             PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,7 +301,7 @@ public class inicio extends javax.swing.JFrame {
                 .addGroup(PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(identificaciontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(modelotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,24 +317,28 @@ public class inicio extends javax.swing.JFrame {
                 .addGroup(PanIngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(espacio_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
+                .addGap(59, 59, 59)
                 .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(30, 30, 30))
         );
 
         jTabbedPane1.addTab("tab1", PanIngresar);
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 27)); // NOI18N
+        PanRetira.setBackground(new java.awt.Color(217, 200, 169));
+
+        jLabel12.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Retirar Vehiculos del Parqueadero");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 19)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Placa:");
 
-        Retirar2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Retirar2.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         Retirar2.setText("Retirar");
 
-        factura.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        factura.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         factura.setText("Factura");
         factura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,7 +364,7 @@ public class inicio extends javax.swing.JFrame {
                         .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(factura)
                             .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 119, Short.MAX_VALUE)))
+                        .addGap(0, 109, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         PanRetiraLayout.setVerticalGroup(
@@ -365,15 +380,21 @@ public class inicio extends javax.swing.JFrame {
                 .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Retirar2)
                     .addComponent(factura))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab2", PanRetira);
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 27)); // NOI18N
+        PanLista.setBackground(new java.awt.Color(217, 200, 169));
+
+        jLabel14.setFont(new java.awt.Font("Verdana", 0, 27)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Espacios del Parqueadero");
 
+        jTable1.setBackground(new java.awt.Color(217, 217, 217));
+        jTable1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", null, null},
@@ -399,6 +420,9 @@ public class inicio extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setAutoscrolls(false);
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTable1.setSelectionBackground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout PanListaLayout = new javax.swing.GroupLayout(PanLista);
@@ -410,7 +434,7 @@ public class inicio extends javax.swing.JFrame {
                 .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
             .addGroup(PanListaLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(61, 61, 61)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -419,9 +443,9 @@ public class inicio extends javax.swing.JFrame {
             .addGroup(PanListaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab3", PanLista);
