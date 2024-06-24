@@ -1,8 +1,8 @@
 
 package principal;
 
-import DAO.EntradaDAO;
 import DAO.PersonaCarroDAO;
+import java.awt.event.ActionEvent;
 import java.math.BigInteger;
 import java.sql.*;
 import java.util.Vector;
@@ -512,10 +512,8 @@ public class inicio extends javax.swing.JFrame {
             
             //inicializadores
             PersonaCarroDAO personasCarroDAO = new PersonaCarroDAO();
-            personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);
-            
-            EntradaDAO entradaDAO = new EntradaDAO();
-            entradaDAO.insertarEntrada(entrada, espacio);
+            personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);     
+            personasCarroDAO.insertarEntrada(entrada, carro);
                         
             
             
