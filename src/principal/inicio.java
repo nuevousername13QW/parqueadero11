@@ -2,7 +2,6 @@
 package principal;
 
 import DAO.PersonaCarroDAO;
-import java.awt.event.ActionEvent;
 import java.math.BigInteger;
 import java.sql.*;
 import java.util.Vector;
@@ -10,8 +9,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -81,7 +78,7 @@ public class inicio extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         Retirar2 = new javax.swing.JButton();
-        btnimprimir = new javax.swing.JButton();
+        Facturar = new javax.swing.JButton();
         PanLista = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -354,11 +351,11 @@ public class inicio extends javax.swing.JFrame {
         Retirar2.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         Retirar2.setText("Retirar");
 
-        btnimprimir.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
-        btnimprimir.setText("Factura");
-        btnimprimir.addActionListener(new java.awt.event.ActionListener() {
+        Facturar.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        Facturar.setText("Factura");
+        Facturar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnimprimirActionPerformed(evt);
+                FacturarActionPerformed(evt);
             }
         });
 
@@ -367,21 +364,23 @@ public class inicio extends javax.swing.JFrame {
         PanRetiraLayout.setHorizontalGroup(
             PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanRetiraLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(PanRetiraLayout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Retirar2)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanRetiraLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(PanRetiraLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Retirar2)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(123, 123, 123)
-                        .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnimprimir)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 109, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 120, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanRetiraLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Facturar)
+                        .addGap(149, 149, 149))))
         );
         PanRetiraLayout.setVerticalGroup(
             PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,8 +394,8 @@ public class inicio extends javax.swing.JFrame {
                 .addGap(114, 114, 114)
                 .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Retirar2)
-                    .addComponent(btnimprimir))
-                .addContainerGap(187, Short.MAX_VALUE))
+                    .addComponent(Facturar))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab2", PanRetira);
@@ -538,12 +537,130 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_marcatxtActionPerformed
 
     private void facturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_facturaActionPerformed
 
     private void nombretxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombretxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombretxtActionPerformed
+
+    private void FacturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FacturarActionPerformed
+ DatabaseConnection conexion = new DatabaseConnection();
+    Connection conn = conexion.miConexion();
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
+
+    if (conn != null) {
+        try {
+            conn.setAutoCommit(false); // Iniciar transacción
+
+            // Verificar disponibilidad del espacio
+            String espacioId = espacio.getText();
+            String sqlEspacio = "SELECT disponible FROM Espacio WHERE espacio_id = ?";
+            preparedStatement = conn.prepareStatement(sqlEspacio);
+            preparedStatement.setInt(1, Integer.parseInt(espacioId));
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next() && resultSet.getBoolean("disponible")) {
+                // Registrar entrada del vehículo
+                String placa = Placa.getText();
+                String sqlEntrada = "INSERT INTO Entrada (placa, espacio_id, fecha_entrada) VALUES (?, ?, NOW())";
+                preparedStatement = conn.prepareStatement(sqlEntrada, Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setString(1, placa);
+                preparedStatement.setInt(2, Integer.parseInt(espacioId));
+                preparedStatement.executeUpdate();
+                resultSet = preparedStatement.getGeneratedKeys();
+                int entradaId = 0;
+                if (resultSet.next()) {
+                    entradaId = resultSet.getInt(1);
+                }
+
+                // Registrar salida del vehículo
+                String sqlSalida = "INSERT INTO Salida (entrada_id, fecha_salida) VALUES (?, NOW())";
+                preparedStatement = conn.prepareStatement(sqlSalida, Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setInt(1, entradaId);
+                preparedStatement.executeUpdate();
+                resultSet = preparedStatement.getGeneratedKeys();
+                int salidaId = 0;
+                if (resultSet.next()) {
+                    salidaId = resultSet.getInt(1);
+                }
+
+                // Calcular el tiempo de permanencia
+                String sqlTiempo = "SELECT TIMESTAMPDIFF(HOUR, e.fecha_entrada, s.fecha_salida) AS horas " +
+                                   "FROM Entrada e JOIN Salida s ON e.entrada_id = s.entrada_id WHERE e.entrada_id = ?";
+                preparedStatement = conn.prepareStatement(sqlTiempo);
+                preparedStatement.setInt(1, entradaId);
+                resultSet = preparedStatement.executeQuery();
+                int horas = 0;
+                if (resultSet.next()) {
+                    horas = resultSet.getInt("horas");
+                }
+
+                // Calcular el costo basado en el tiempo de permanencia
+                int costoTarifa = 100; // Ejemplo de tarifa por hora
+                double totalApagar = horas * costoTarifa;
+
+                // Generar factura
+                String sqlFactura = "INSERT INTO Factura (entrada_id, salida_id, costo_tarifa, total_a_pagar) VALUES (?, ?, ?, ?)";
+                preparedStatement = conn.prepareStatement(sqlFactura);
+                preparedStatement.setInt(1, entradaId);
+                preparedStatement.setInt(2, salidaId);
+                preparedStatement.setInt(3, costoTarifa);
+                preparedStatement.setDouble(4, totalApagar);
+                preparedStatement.executeUpdate();
+
+                // Actualizar disponibilidad del espacio
+                String sqlUpdateEspacio = "UPDATE Espacio SET disponible = FALSE WHERE espacio_id = ?";
+                preparedStatement = conn.prepareStatement(sqlUpdateEspacio);
+                preparedStatement.setInt(1, Integer.parseInt(espacioId));
+                preparedStatement.executeUpdate();
+
+                conn.commit(); // Confirmar transacción
+                JOptionPane.showMessageDialog(this, "Facturación realizada con éxito.");
+
+                // Mostrar los datos en la interfaz
+                idfacturatxt.setText(String.valueOf(entradaId));
+                Cliente.setText(clienteRecibe); // Asegúrate de definir clienteRecibe
+                Placa.setText(placa);
+                espacio.setText(espacioId);
+                fecha_ingreso.setText(String.valueOf(fechaEntra));
+                hora_ingreso.setText(String.valueOf(fechaEntra.toLocalDateTime().toLocalTime()));
+                fecha_salida.setText(String.valueOf(fechaSale));
+                hora_salida.setText(String.valueOf(fechaSale.toLocalDateTime().toLocalTime()));
+                valor_hora.setText(String.valueOf(costoTarifa));
+                tipo_tarifa.setText(tarifaId); // Asegúrate de definir tarifaId
+                empleado.setText(empleadoIdEntrega); // Asegúrate de definir empleadoIdEntrega
+                total.setText(String.valueOf(totalApagar));
+
+            } else {
+                JOptionPane.showMessageDialog(this, "El espacio no está disponible.");
+            }
+
+        } catch (SQLException e) {
+            try {
+                conn.rollback(); // Revertir transacción en caso de error
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(this, "Error al realizar la facturación. " + e.toString());
+        } finally {
+            try {
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Error al conectar con la base de datos.");
+    }    }//GEN-LAST:event_FacturarActionPerformed
 
     /**
      */
@@ -625,12 +742,12 @@ public class inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Facturar;
     public javax.swing.JButton Guardar;
     private javax.swing.JPanel PanIngresar;
     private javax.swing.JPanel PanLista;
     private javax.swing.JPanel PanRetira;
     private javax.swing.JButton Retirar2;
-    private javax.swing.JButton btnimprimir;
     public javax.swing.JTextField colortxt;
     private javax.swing.JTextField espacio_id;
     private javax.swing.JTextField identificaciontxt;

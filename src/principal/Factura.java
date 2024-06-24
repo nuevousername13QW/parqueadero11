@@ -4,11 +4,6 @@
  */
 package principal;
 
-import com.sun.jdi.connect.spi.Connection;
-import java.beans.Statement;
-
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 /**
  *
  * @author delga
@@ -22,88 +17,7 @@ public class Factura extends javax.swing.JFrame {
         initComponents();
     }
 
-    private void obtenerDatosUltimaFactura() {
-    DatabaseConnection conexion = new DatabaseConnection();
-    Connection conn = conexion.miConexion();
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
 
-    if (conn != null) {
-        try {
-            String sql = "SELECT * FROM factura ORDER BY factura_id DESC LIMIT 1";
-            preparedStatement = conn.prepareStatement(sql);
-            resultSet = preparedStatement.executeQuery();
-
-            if (resultSet.next()) {
-                int facturaId = resultSet.getInt("factura_id");
-                String placa = resultSet.getString("placa");
-                int entradaId = resultSet.getInt("entrada_id");
-                int salidaId = resultSet.getInt("salida_id");
-                String espacioId = resultSet.getString("espacio_id");
-                java.sql.DateTime fechaEntra = resultSet.getDate("fecha_entrada");
-                java.sql.DateTime fechaSale = resultSet.getDate("fecha_salida");
-               /** int costoTarifa = resultSet.getInt("costo_tarifa");**/
-               /** double totalApagar = resultSet.getDouble("total_a_pagar");**/
-
-                
-                
-             
-              String factura_Id = String.valueOf(facturaId);
-              idfacturatxt.setText(factura_Id);
-                
-              Cliente.setText(clienteRecibe);
-              Placa.setText(placa);
-              espacio.setText(espacioId);
-              
-              String Fecha_Entra = String.valueOf(fechaEntra);
-              fecha_ingreso.setText(Fecha_Entra);
-              
-              
-              String Hora_Entra = String.valueOf(horaEntra);
-              hora_ingreso.setText(Hora_Entra);
-              
-              String Hora_Sale = String.valueOf(horaSale);
-              hora_salida.setText(Hora_Sale);
-              
-              
-              String Fecha_Sale = String.valueOf(fechaSale);
-              fecha_salida.setText(Fecha_Sale);
-            
-              String Costo_tarifa = String.valueOf(costoTarifa);
-              valor_hora.setText(Costo_tarifa);
-              
-              tipo_tarifa.setText(tarifaId);
-              empleado.setText(empleadoIdEntrega);
-          
-              String Total = String.valueOf(totalApagar);
-              total.setText(Total);
-              
-              
-            } else {
-                JOptionPane.showMessageDialog(this, "No se encontró ninguna factura.");
-            }
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Error al conectar con la base de datos. " + e.toString());
-        } finally {
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (preparedStatement != null) {
-                    preparedStatement.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    } else {
-        JOptionPane.showMessageDialog(this, "Error al conectar con la base de datos.");
-    }
-}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
