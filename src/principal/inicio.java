@@ -1,6 +1,7 @@
 
 package principal;
 
+import DAO.facturaDAO;
 import DAO.CarroDAO;
 import DAO.EntradaDAO;
 import DAO.PersonasDAO;

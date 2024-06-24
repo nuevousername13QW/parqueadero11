@@ -4,6 +4,10 @@
  */
 package principal;
 
+import com.sun.jdi.connect.spi.Connection;
+import java.beans.Statement;
+
+import java.sql.SQLException;
 /**
  *
  * @author delga
@@ -48,6 +52,7 @@ public class Factura extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 520));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -66,6 +71,11 @@ public class Factura extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton2.setText("Imprimir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -245,7 +255,12 @@ public class Factura extends javax.swing.JFrame {
 
     private void idfacturatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idfacturatxtActionPerformed
         // TODO add your handling code here:
+ 
     }//GEN-LAST:event_idfacturatxtActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,9 +298,9 @@ public class Factura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Ncompletotxt;
-    private javax.swing.JTextField Nidentificaciontxt;
-    private javax.swing.JTextField idfacturatxt;
+    public javax.swing.JTextField Ncompletotxt;
+    public javax.swing.JTextField Nidentificaciontxt;
+    public javax.swing.JTextField idfacturatxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -299,9 +314,9 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField placatxt;
+    public javax.swing.JTextField jTextField4;
+    public javax.swing.JTextField jTextField5;
+    public javax.swing.JTextField jTextField6;
+    public javax.swing.JTextField placatxt;
     // End of variables declaration//GEN-END:variables
 }

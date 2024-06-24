@@ -48,10 +48,7 @@ public class PersonasDAO {
         e.printStackTrace();
     }
     
-    public void sacarPersona (Personas persona){
-    
-        String sql = "SELECT persona_id, nombre FROM personas";
+
     }
-}
 }
 
