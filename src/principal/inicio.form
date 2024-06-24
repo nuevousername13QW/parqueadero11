@@ -513,7 +513,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="factura" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnimprimir" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextField7" min="-2" pref="144" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="109" max="32767" attributes="0"/>
@@ -536,7 +536,7 @@
                       <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Retirar2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="factura" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnimprimir" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="187" max="32767" attributes="0"/>
                   </Group>
@@ -577,7 +577,7 @@
                 <Property name="text" type="java.lang.String" value="Retirar"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="factura">
+            <Component class="javax.swing.JButton" name="btnimprimir">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="16" style="0"/>
@@ -585,7 +585,7 @@
                 <Property name="text" type="java.lang.String" value="Factura"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="facturaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnimprimirActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

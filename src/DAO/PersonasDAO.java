@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import principal.Factura;
 import principal.DatabaseConnection;
 import principal.Personas;
 import java.sql.Connection;
@@ -25,5 +26,10 @@ public class PersonasDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    
+    public void sacarPersona (Personas persona){
+    
+        String sql = "SELECT persona_id, nombre FROM personas";
     }
 }
