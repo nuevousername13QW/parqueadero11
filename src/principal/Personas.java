@@ -5,7 +5,6 @@
 package principal;
 
 import java.math.BigInteger;
-
 /**
  *
  * @author Trabajo
@@ -37,8 +36,9 @@ public class Personas {
     public BigInteger getTelefono() {
         return Telefono;
     }
-
-    public void setTelefono(BigInteger Telefono) {
+    
+public void setTelefono(BigInteger Telefono) {
         this.Telefono = Telefono;
-    }
+}
+    
 }

@@ -9,21 +9,40 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import principal.Entrada;
 import principal.DatabaseConnection;
+import java.sql.ResultSet;
+import principal.Espacio;
 
 /**
  *
  * @author Trabajo
  */
 public class EntradaDAO {
-    public void insertarEntrada(Entrada entrada) {
-        String sql = "INSERT INTO entrada (placa, espacio_id, fecha_entrada, hora_entrada) VALUES (?, ?,current_time(), current_date())";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, entrada.getplaca());
-            pstmt.setInt(2, entrada.getid());
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+   public void insertarEntrada(Entrada entrada, Espacio espacio) {
+    String checkSql = "SELECT Disponible FROM espacio WHERE espacio_id = ?";
+    String insertSql = "INSERT INTO entrada (placa, espacio_id, fecha_entrada) VALUES (?, ?, CURRENT_TIMESTAMP())";
+    
+    try (Connection conn = DatabaseConnection.getConnection();
+         PreparedStatement checkStmt = conn.prepareStatement(checkSql);
+         PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
+
+        // Verificar disponibilidad del espacio
+        checkStmt.setInt(1, espacio.getid());
+        ResultSet rs = checkStmt.executeQuery();
+        
+        if (rs.next()) {
+            boolean disponible = rs.getBoolean("Disponible");
+
+            if (disponible) {
+                // Insertar entrada
+                insertStmt.setString(1, entrada.getplaca());
+                insertStmt.setInt(2, entrada.getid());
+                insertStmt.executeUpdate();
+
+            }
+        } else {
         }
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+}
 }
