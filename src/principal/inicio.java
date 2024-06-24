@@ -1,7 +1,10 @@
 
 package principal;
 
-import DAO.PersonaCarroDAO;
+import DAO.CarroDAO;
+import DAO.EntradaDAO;
+import DAO.EspacioDAO;
+import DAO.PersonasDAO;
 import java.math.BigInteger;
 import java.sql.*;
 import java.util.Vector;
@@ -501,8 +504,9 @@ public class inicio extends javax.swing.JFrame {
             carro.setid(Integer.parseInt((identificaciontxt.getText())));
             
             
+            EspacioDAO espacioDAO = new EspacioDAO();
             Espacio espacio = new Espacio();
-            espacio.setid(Integer.parseInt(espacio_id.getText()));
+            espacio.setid(Integer.parseInt((espacio_id.getText())));
             
             
             Entrada entrada = new Entrada();
@@ -510,11 +514,20 @@ public class inicio extends javax.swing.JFrame {
             entrada.setplaca(placatxt.getText());
             
             //inicializadores
-            PersonaCarroDAO personasCarroDAO = new PersonaCarroDAO();
-            personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);
-            personasCarroDAO.insertarEntrada(entrada,carro);
+            PersonasDAO personaDAO = new PersonasDAO();
+            personaDAO.insertarPersona(persona, espacio);
             
-           
+             CarroDAO carroDAO = new CarroDAO();
+            carroDAO.insertarCarro(carro, espacio);
+            
+            EntradaDAO entradaDAO = new EntradaDAO();
+            entradaDAO.insertarEntrada(entrada, espacio);
+            
+            espacioDAO.actualizarDisponibilidad(espacio);
+            
+            
+            
+            
             // Limpiar los campos de texto
     identificaciontxt.setText("");
     nombretxt.setText("");
@@ -587,6 +600,7 @@ personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);
                 data.add(row);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return new DefaultTableModel(data, columnNames);
