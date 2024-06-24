@@ -1,10 +1,7 @@
 
 package principal;
 
-import DAO.CarroDAO;
-import DAO.EntradaDAO;
-import DAO.EspacioDAO;
-import DAO.PersonasDAO;
+import DAO.PersonaCarroDAO;
 import java.math.BigInteger;
 import java.sql.*;
 import java.util.Vector;
@@ -12,8 +9,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -506,9 +501,8 @@ public class inicio extends javax.swing.JFrame {
             carro.setid(Integer.parseInt((identificaciontxt.getText())));
             
             
-            EspacioDAO espacioDAO = new EspacioDAO();
             Espacio espacio = new Espacio();
-            espacio.setid(Integer.parseInt((espacio_id.getText())));
+            espacio.setid(Integer.parseInt(espacio_id.getText()));
             
             
             Entrada entrada = new Entrada();
@@ -517,20 +511,11 @@ public class inicio extends javax.swing.JFrame {
             
             
             //inicializadores
-            PersonasDAO personaDAO = new PersonasDAO();
-            personaDAO.insertarPersona(persona, espacio);
+            PersonaCarroDAO personasCarroDAO = new PersonaCarroDAO();
+            personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);
+            personasCarroDAO.insertarEntrada(entrada,carro);
             
-             CarroDAO carroDAO = new CarroDAO();
-            carroDAO.insertarCarro(carro, espacio);
-            
-            EntradaDAO entradaDAO = new EntradaDAO();
-            entradaDAO.insertarEntrada(entrada, espacio);
-            
-            espacioDAO.actualizarDisponibilidad(espacio);
-            
-            
-            
-            
+           
             // Limpiar los campos de texto
     identificaciontxt.setText("");
     nombretxt.setText("");
@@ -600,7 +585,6 @@ public class inicio extends javax.swing.JFrame {
                 data.add(row);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
         }
 
         return new DefaultTableModel(data, columnNames);
