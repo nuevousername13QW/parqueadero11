@@ -45,5 +45,4 @@ public class EntradaDAO {
         e.printStackTrace();
     }
 }
-
 }
