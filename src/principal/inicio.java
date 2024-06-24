@@ -542,7 +542,7 @@ public class inicio extends javax.swing.JFrame {
     
     actualizarTabla();
             
-            PersonasCarroDAO personasCarroDAO = new PersonasCarroDAO();
+            PersonaCarroDAO personasCarroDAO = new PersonaCarroDAO();
 personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);
     }//GEN-LAST:event_GuardarActionPerformed
 
