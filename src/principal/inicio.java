@@ -1,17 +1,12 @@
 
 package principal;
 
-import DAO.facturaDAO;
+
 import DAO.CarroDAO;
 import DAO.EntradaDAO;
 import DAO.PersonasDAO;
 import java.math.BigInteger;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 /**
  *
