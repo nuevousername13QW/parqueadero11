@@ -47,24 +47,7 @@ public class EspacioDAO {
             e.printStackTrace();
         }
     }
-
-   
-    public boolean isEspacioDisponible(int espacioId) {
-        String checkSql = "SELECT Disponible FROM espacio WHERE espacio_id = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
-
-            checkStmt.setInt(1, espacioId);
-            ResultSet rs = checkStmt.executeQuery();
-
-            if (rs.next()) {
-                return rs.getBoolean("Disponible");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false; // Si no se encuentra el espacio o hay un error, se asume no disponible
-    }
     
 }
+
 

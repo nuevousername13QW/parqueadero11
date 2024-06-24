@@ -6,21 +6,40 @@ import DAO.EntradaDAO;
 import DAO.EspacioDAO;
 import DAO.PersonasDAO;
 import java.math.BigInteger;
-
-
+import java.sql.*;
+import java.util.Vector;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+import java.util.Timer;
+import java.util.TimerTask;
 /**
  *
  * @author delga
  */
 public class inicio extends javax.swing.JFrame {
-
     
     /**
      * Creates new form inicioxd2
      */
     public inicio()  {
         initComponents();
+        actualizarTabla(); // Actualizar la tabla inmediatamente al abrir el programa
+
+        // Crear un Timer para actualizar la tabla cada 5 segundos
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                actualizarTabla();
+            }
+        }, 5000, 5000);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -477,8 +496,7 @@ public class inicio extends javax.swing.JFrame {
             persona.setid(new BigInteger((identificaciontxt.getText())));
             persona.setNombre(nombretxt.getText());
             persona.setTelefono(new BigInteger((telefonotxt.getText())));
-            PersonasDAO personaDAO = new PersonasDAO();
-            personaDAO.insertarPersona(persona);
+            
         
             Carros carro = new Carros();
             carro.setplaca(placatxt.getText());
@@ -486,19 +504,44 @@ public class inicio extends javax.swing.JFrame {
             carro.setmarca(marcatxt.getText());
             carro.setcolor(colortxt.getText());
             carro.setid(Integer.parseInt((identificaciontxt.getText())));
-            CarroDAO carroDAO = new CarroDAO();
-            carroDAO.insertarCarro(carro);
+            
             
             EspacioDAO espacioDAO = new EspacioDAO();
             Espacio espacio = new Espacio();
             espacio.setid(Integer.parseInt((espacio_id.getText())));
-            espacioDAO.actualizarDisponibilidad(espacio);
+            
             
             Entrada entrada = new Entrada();
             entrada.setid(Integer.parseInt((espacio_id.getText())));
             entrada.setplaca(placatxt.getText());
+            
+            
+            //inicializadores
+            PersonasDAO personaDAO = new PersonasDAO();
+            personaDAO.insertarPersona(persona, espacio);
+            
+             CarroDAO carroDAO = new CarroDAO();
+            carroDAO.insertarCarro(carro, espacio);
+            
             EntradaDAO entradaDAO = new EntradaDAO();
-            entradaDAO.insertarEntrada(entrada);
+            entradaDAO.insertarEntrada(entrada, espacio);
+            
+            espacioDAO.actualizarDisponibilidad(espacio);
+            
+            
+            
+            
+            // Limpiar los campos de texto
+    identificaciontxt.setText("");
+    nombretxt.setText("");
+    telefonotxt.setText("");
+    placatxt.setText("");
+    modelotxt.setText("");
+    marcatxt.setText("");
+    colortxt.setText("");
+    espacio_id.setText("");
+    
+    actualizarTabla();
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void marcatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcatxtActionPerformed
@@ -514,8 +557,57 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_nombretxtActionPerformed
 
     /**
-     * @param args the command line arguments
      */
+    
+    
+    private void actualizarTabla() {
+    DefaultTableModel model = DatabaseUtils.getDataFromDatabase();
+    jTable1.setModel(model);
+    
+    }
+    public class DatabaseUtils {
+    public static DefaultTableModel getDataFromDatabase() {
+        Vector<String> columnNames = new Vector<>();
+        Vector<Vector<Object>> data = new Vector<>();
+
+        String url = "jdbc:mysql://localhost:3306/parqueadero";
+        String userid = "root";
+        String password = "David%2006";
+        String sql = "SELECT e.espacio_id, e.disponible, c.placa " +
+                     "FROM Espacio e " +
+                     "LEFT JOIN Entrada en ON e.espacio_id = en.espacio_id " +
+                     "LEFT JOIN carros c ON en.placa = c.placa";
+        
+        try (Connection connection = DriverManager.getConnection(url, userid, password);
+             Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+        
+            // Definir nombres de las columnas
+            columnNames.add("Espacio");
+            columnNames.add("Disponible");
+            columnNames.add("Placa");
+            
+            // Obtener datos de las filas y combinarlos
+            while (rs.next()) {
+                Vector<Object> row = new Vector<>();
+                int espacioId = rs.getInt("espacio_id");
+                boolean disponible = rs.getBoolean("disponible");
+                String placa = rs.getString("placa");
+
+                row.add(espacioId);
+                row.add(disponible ? "Sí" : "No");
+                row.add(placa != null ? placa : "N/A");
+                data.add(row);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return new DefaultTableModel(data, columnNames);
+    }
+}
+  
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

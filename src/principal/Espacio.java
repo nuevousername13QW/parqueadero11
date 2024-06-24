@@ -12,7 +12,8 @@ public class Espacio {
     private int id;
     private boolean disponible;
 
-    // Getters y Setters
+    // Constructor, getters y setters
+    
     public int getid() {
         return id;
     }
@@ -20,5 +21,14 @@ public class Espacio {
     public void setid(int id) {
         this.id = id;
     }
+    
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
     
 }

@@ -5,7 +5,6 @@
 package principal;
 
 import java.math.BigInteger;
-
 /**
  *
  * @author Trabajo
@@ -14,7 +13,6 @@ public class Personas {
     private BigInteger id;
     private String Nombre;
     private BigInteger Telefono;
-
 
     // Getters y Setters
 
