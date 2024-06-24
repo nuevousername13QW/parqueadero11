@@ -83,7 +83,7 @@ public class inicio extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         Retirar2 = new javax.swing.JButton();
-        factura = new javax.swing.JButton();
+        btnimprimir = new javax.swing.JButton();
         PanLista = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -356,11 +356,11 @@ public class inicio extends javax.swing.JFrame {
         Retirar2.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         Retirar2.setText("Retirar");
 
-        factura.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
-        factura.setText("Factura");
-        factura.addActionListener(new java.awt.event.ActionListener() {
+        btnimprimir.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        btnimprimir.setText("Factura");
+        btnimprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                facturaActionPerformed(evt);
+                btnimprimirActionPerformed(evt);
             }
         });
 
@@ -380,7 +380,7 @@ public class inicio extends javax.swing.JFrame {
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(123, 123, 123)
                         .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(factura)
+                            .addComponent(btnimprimir)
                             .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 109, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -397,7 +397,7 @@ public class inicio extends javax.swing.JFrame {
                 .addGap(114, 114, 114)
                 .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Retirar2)
-                    .addComponent(factura))
+                    .addComponent(btnimprimir))
                 .addContainerGap(187, Short.MAX_VALUE))
         );
 
@@ -643,9 +643,9 @@ personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);
     private javax.swing.JPanel PanLista;
     private javax.swing.JPanel PanRetira;
     private javax.swing.JButton Retirar2;
+    private javax.swing.JButton btnimprimir;
     public javax.swing.JTextField colortxt;
     private javax.swing.JTextField espacio_id;
-    private javax.swing.JButton factura;
     private javax.swing.JTextField identificaciontxt;
     private javax.swing.JButton ingresar;
     private javax.swing.JLabel jLabel1;
