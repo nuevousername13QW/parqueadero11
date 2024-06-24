@@ -15,15 +15,16 @@ import java.sql.SQLException;
  */
 public class PersonasDAO {
     public void insertarPersona(Personas persona) {
-        String sql = "INSERT INTO personas (persona_id,nombre,telefono) VALUES (?, ?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setObject(1, persona.getid());
-            pstmt.setString(2, persona.getNombre());
-            pstmt.setObject(3, persona.getTelefono());
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            String sql = "INSERT INTO personas (persona_id, nombre, telefono) VALUES (?, ?, ?)";
+            try (Connection conn = DatabaseConnection.getConnection();
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setObject(1, persona.getid());
+                pstmt.setString(2, persona.getNombre());
+                pstmt.setObject(3, persona.getTelefono());
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
     }
 }
+

@@ -16,7 +16,7 @@ import principal.DatabaseConnection;
  */
 public class EntradaDAO {
     public void insertarEntrada(Entrada entrada) {
-        String sql = "INSERT INTO entrada (placa, espacio_id, fecha_entrada, hora_entrada) VALUES (?, ?,current_time(), current_date())";
+        String sql = "INSERT INTO entrada (placa, espacio_id, fecha_entrada, hora_entrada) VALUES (?, ?,current_date(), current_time())";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, entrada.getplaca());

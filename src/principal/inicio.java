@@ -3,11 +3,10 @@ package principal;
 
 import DAO.CarroDAO;
 import DAO.EntradaDAO;
+import DAO.EspacioDAO;
 import DAO.PersonasDAO;
 import java.math.BigInteger;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -465,6 +464,11 @@ public class inicio extends javax.swing.JFrame {
             carro.setid(Integer.parseInt((identificaciontxt.getText())));
             CarroDAO carroDAO = new CarroDAO();
             carroDAO.insertarCarro(carro);
+            
+            EspacioDAO espacioDAO = new EspacioDAO();
+            Espacio espacio = new Espacio();
+            espacio.setid(Integer.parseInt((espacio_id.getText())));
+            espacioDAO.actualizarDisponibilidad(espacio);
             
             Entrada entrada = new Entrada();
             entrada.setid(Integer.parseInt((espacio_id.getText())));

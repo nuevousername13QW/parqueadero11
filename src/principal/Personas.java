@@ -15,6 +15,7 @@ public class Personas {
     private String Nombre;
     private BigInteger Telefono;
 
+
     // Getters y Setters
 
     public BigInteger getid() {
@@ -37,8 +38,9 @@ public class Personas {
     public BigInteger getTelefono() {
         return Telefono;
     }
-
-    public void setTelefono(BigInteger Telefono) {
+    
+public void setTelefono(BigInteger Telefono) {
         this.Telefono = Telefono;
-    }
+}
+    
 }

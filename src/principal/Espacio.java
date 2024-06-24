@@ -10,6 +10,7 @@ package principal;
  */
 public class Espacio {
     private int id;
+    private boolean disponible;
 
     // Getters y Setters
     public int getid() {
