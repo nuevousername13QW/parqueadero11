@@ -16,33 +16,48 @@ import principal.Espacio;
  */
 public class CarroDAO {
      public void insertarCarro(Carros carro, Espacio espacio) {
-        String checkSql = "SELECT Disponible FROM espacio WHERE espacio_id = ?";
-        String insertSql = "INSERT INTO carros (placa, marca, modelo, color, persona_id) VALUES (?, ?, ?, ?, ?)";
+    String checkEspacioSql = "SELECT Disponible FROM espacio WHERE espacio_id = ?";
+    String checkPlacaSql = "SELECT COUNT(*) FROM carros WHERE placa = ?";
+    String insertSql = "INSERT INTO carros (placa, marca, modelo, color, persona_id) VALUES (?, ?, ?, ?, ?)";
+    
+    try (Connection conn = DatabaseConnection.getConnection();
+         PreparedStatement checkEspacioStmt = conn.prepareStatement(checkEspacioSql);
+         PreparedStatement checkPlacaStmt = conn.prepareStatement(checkPlacaSql);
+         PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
+
+        // Verificar disponibilidad del espacio
+        checkEspacioStmt.setInt(1, espacio.getid());
+        ResultSet rsEspacio = checkEspacioStmt.executeQuery();
         
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement checkStmt = conn.prepareStatement(checkSql);
-             PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
+        if (rsEspacio.next()) {
+            boolean disponible = rsEspacio.getBoolean("Disponible");
 
-            // Verificar disponibilidad del espacio
-            checkStmt.setInt(1, espacio.getid());
-            ResultSet rs = checkStmt.executeQuery();
-            
-            if (rs.next()) {
-                boolean disponible = rs.getBoolean("Disponible");
+            if (disponible) {
+                // Verificar si la placa ya existe
+                checkPlacaStmt.setString(1, carro.getplaca());
+                ResultSet rsPlaca = checkPlacaStmt.executeQuery();
+                rsPlaca.next();
+                int count = rsPlaca.getInt(1);
 
-                if (disponible) {
+                if (count == 0) {
                     // Insertar carro
                     insertStmt.setString(1, carro.getplaca());
                     insertStmt.setString(2, carro.getmarca());
                     insertStmt.setString(3, carro.getmodelo());
                     insertStmt.setString(4, carro.getcolor());
                     insertStmt.setInt(5, carro.getid());
-                    insertStmt.executeUpdate(); // Ejecutar la inserción
+                    insertStmt.executeUpdate();
+                } else {
+                    System.out.println("La placa ya existe.");
                 }
             } else {
+                System.out.println("El espacio no está disponible.");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } else {
+            System.out.println("El espacio no existe.");
         }
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+}
 }
