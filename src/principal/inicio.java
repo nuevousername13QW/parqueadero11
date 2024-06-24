@@ -1,10 +1,8 @@
 
 package principal;
 
-import DAO.CarroDAO;
 import DAO.EntradaDAO;
-import DAO.EspacioDAO;
-import DAO.PersonasDAO;
+import DAO.PersonaCarroDAO;
 import java.math.BigInteger;
 import java.sql.*;
 import java.util.Vector;
@@ -504,9 +502,6 @@ public class inicio extends javax.swing.JFrame {
             carro.setmarca(marcatxt.getText());
             carro.setcolor(colortxt.getText());
             carro.setid(Integer.parseInt((identificaciontxt.getText())));
-            
-            
-            EspacioDAO espacioDAO = new EspacioDAO();
             Espacio espacio = new Espacio();
             espacio.setid(Integer.parseInt((espacio_id.getText())));
             
@@ -516,17 +511,12 @@ public class inicio extends javax.swing.JFrame {
             entrada.setplaca(placatxt.getText());
             
             //inicializadores
-            PersonasDAO personaDAO = new PersonasDAO();
-            personaDAO.insertarPersona(persona, espacio);
-            
-             CarroDAO carroDAO = new CarroDAO();
-            carroDAO.insertarCarro(carro, espacio);
+            PersonaCarroDAO personasCarroDAO = new PersonaCarroDAO();
+            personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);
             
             EntradaDAO entradaDAO = new EntradaDAO();
             entradaDAO.insertarEntrada(entrada, espacio);
-            
-            espacioDAO.actualizarDisponibilidad(espacio);
-            
+                        
             
             
             
@@ -542,8 +532,7 @@ public class inicio extends javax.swing.JFrame {
     
     actualizarTabla();
             
-            PersonaCarroDAO personasCarroDAO = new PersonaCarroDAO();
-personasCarroDAO.insertarPersonaYCarro(persona, carro, espacio);
+            
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void marcatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcatxtActionPerformed
