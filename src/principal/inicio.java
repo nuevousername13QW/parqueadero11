@@ -12,6 +12,8 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import java.util.Timer;
 import java.util.TimerTask;
+import DAO.RetirarDAO;
+import principal.Retirar;
 /**
  *
  * @author delga
@@ -75,7 +77,7 @@ public class inicio extends javax.swing.JFrame {
         espacio_id = new javax.swing.JTextField();
         PanRetira = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        plaquita = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         Retirar2 = new javax.swing.JButton();
         Facturar = new javax.swing.JButton();
@@ -86,6 +88,7 @@ public class inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 500));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(64, 64, 64));
@@ -350,6 +353,11 @@ public class inicio extends javax.swing.JFrame {
 
         Retirar2.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         Retirar2.setText("Retirar");
+        Retirar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Retirar2ActionPerformed(evt);
+            }
+        });
 
         Facturar.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         Facturar.setText("Factura");
@@ -375,7 +383,7 @@ public class inicio extends javax.swing.JFrame {
                 .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanRetiraLayout.createSequentialGroup()
                         .addGap(123, 123, 123)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(plaquita, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 120, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanRetiraLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -390,7 +398,7 @@ public class inicio extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(plaquita, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(114, 114, 114)
                 .addGroup(PanRetiraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Retirar2)
@@ -412,7 +420,6 @@ public class inicio extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", null, null},
                 {"2", null, null},
                 {"3", null, null},
                 {"4", null, null},
@@ -662,6 +669,13 @@ public class inicio extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Error al conectar con la base de datos.");
     }    }//GEN-LAST:event_FacturarActionPerformed
 
+    private void Retirar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Retirar2ActionPerformed
+ String placa = plaquita.getText(); // Obtén el texto del JTextField
+        Retirar retirar = new Retirar(placa); // Crea un objeto Retirar con la placa
+
+        RetirarDAO retirarDAO = new RetirarDAO(); // Crea una instancia de RetirarDAO
+        retirarDAO.retirarVehiculo(retirar); // Llama al método retirarVehiculo
+    }//GEN-LAST:event_Retirar2ActionPerformed
     /**
      */
     
@@ -678,7 +692,7 @@ public class inicio extends javax.swing.JFrame {
 
         String url = "jdbc:mysql://localhost:3306/parqueadero";
         String userid = "root";
-        String password = "David%2006";
+        String password = "Alejandro134456QW_";
         String sql = "SELECT e.espacio_id, e.disponible, c.placa " +
                      "FROM Espacio e " +
                      "LEFT JOIN Entrada en ON e.espacio_id = en.espacio_id " +
@@ -771,12 +785,12 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JButton listar;
     public javax.swing.JTextField marcatxt;
     public javax.swing.JTextField modelotxt;
     public javax.swing.JTextField nombretxt;
     public javax.swing.JTextField placatxt;
+    private javax.swing.JTextField plaquita;
     private javax.swing.JButton retirar;
     private javax.swing.JButton salir;
     public javax.swing.JTextField telefonotxt;
