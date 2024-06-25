@@ -13,6 +13,8 @@ import javax.swing.table.DefaultTableModel;
 import java.util.Timer;
 import java.util.TimerTask;
 import DAO.RetirarDAO;
+import  DAO.FacturaDAO;
+import DAO.InsertarSalidaDAO;
 
 /**
  *
@@ -509,6 +511,7 @@ public class inicio extends javax.swing.JFrame {
             carro.setmarca(marcatxt.getText());
             carro.setcolor(colortxt.getText());
             carro.setid(Integer.parseInt((identificaciontxt.getText())));
+            
             Espacio espacio = new Espacio();
             espacio.setid(Integer.parseInt((espacio_id.getText())));
             
@@ -553,6 +556,17 @@ public class inicio extends javax.swing.JFrame {
 
     private void FacturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FacturarActionPerformed
         {
+            Factura1 factura = new Factura1();
+            factura.setPlaca(plaquita.getText());
+            
+            InsertarSalidaDAO insertarSalidaDAO = new InsertarSalidaDAO();  
+            insertarSalidaDAO.insertarSalida(factura.getPlaca());
+            
+           
+            FacturaDAO facturaDAO = new FacturaDAO();
+            facturaDAO.obtenerEntradaId(factura.getPlaca());
+            facturaDAO.obtenerFacturaPorPlaca(factura.getPlaca());
+            
     }    }//GEN-LAST:event_FacturarActionPerformed
 
     private void Retirar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Retirar2ActionPerformed
@@ -567,19 +581,21 @@ if (placa != null && !placa.isEmpty()) {
     retirarVehiculo.setPlaca(placa);
     System.out.println("Placa en objeto Retirar: " + retirarVehiculo.getPlaca()); // Declaración de depuración
 
+    
+    
     // Crear instancia de RetirarDAO
-    RetirarDAO retirarDAO = new RetirarDAO();
-
+    RetirarDAO retirarDAO = new RetirarDAO();  
     // Llamar al método retirarVehiculo
     retirarDAO.retirarVehiculo(retirarVehiculo);
 } else {
     // Maneja el caso donde la placa es nula o vacía
     System.out.println("La placa no puede estar vacía.");
 
-    
-    plaquita.setText("");
-    actualizarTabla();
 }
+
+plaquita.setText("");
+
+    actualizarTabla();
     }//GEN-LAST:event_Retirar2ActionPerformed
     /**
      */

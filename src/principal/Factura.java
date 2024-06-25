@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package principal;
-
 /**
  *
  * @author delga
@@ -15,6 +14,7 @@ public class Factura extends javax.swing.JFrame {
      */
     public Factura() {
         initComponents();
+        
     }
 
 
@@ -37,14 +37,13 @@ public class Factura extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         Nidentificaciontxt = new javax.swing.JTextField();
         Ncompletotxt = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        Fecha_entrada = new javax.swing.JTextField();
+        Fecha_salida = new javax.swing.JTextField();
+        Total_pagar = new javax.swing.JTextField();
         placatxt = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 520));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -123,20 +122,20 @@ public class Factura extends javax.swing.JFrame {
         Ncompletotxt.setForeground(new java.awt.Color(0, 0, 0));
         Ncompletotxt.setText("....");
 
-        jTextField4.setEditable(false);
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField4.setText("....");
+        Fecha_entrada.setEditable(false);
+        Fecha_entrada.setBackground(new java.awt.Color(255, 255, 255));
+        Fecha_entrada.setForeground(new java.awt.Color(0, 0, 0));
+        Fecha_entrada.setText("....");
 
-        jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField5.setText("....");
+        Fecha_salida.setEditable(false);
+        Fecha_salida.setBackground(new java.awt.Color(255, 255, 255));
+        Fecha_salida.setForeground(new java.awt.Color(0, 0, 0));
+        Fecha_salida.setText("....");
 
-        jTextField6.setEditable(false);
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField6.setText("....");
+        Total_pagar.setEditable(false);
+        Total_pagar.setBackground(new java.awt.Color(255, 255, 255));
+        Total_pagar.setForeground(new java.awt.Color(0, 0, 0));
+        Total_pagar.setText("....");
 
         placatxt.setEditable(false);
         placatxt.setBackground(new java.awt.Color(255, 255, 255));
@@ -171,8 +170,8 @@ public class Factura extends javax.swing.JFrame {
                         .addGap(154, 154, 154)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Nidentificaciontxt, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Fecha_entrada, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Fecha_salida, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(placatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Ncompletotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -180,7 +179,7 @@ public class Factura extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addGap(92, 92, 92)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Total_pagar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(205, 205, 205))
             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -216,15 +215,15 @@ public class Factura extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Fecha_entrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Fecha_salida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Total_pagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -291,8 +290,11 @@ public class Factura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTextField Fecha_entrada;
+    public javax.swing.JTextField Fecha_salida;
     public javax.swing.JTextField Ncompletotxt;
     public javax.swing.JTextField Nidentificaciontxt;
+    public javax.swing.JTextField Total_pagar;
     public javax.swing.JTextField idfacturatxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -307,9 +309,6 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JTextField jTextField4;
-    public javax.swing.JTextField jTextField5;
-    public javax.swing.JTextField jTextField6;
     public javax.swing.JTextField placatxt;
     // End of variables declaration//GEN-END:variables
 }

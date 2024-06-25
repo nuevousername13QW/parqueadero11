@@ -11,7 +11,9 @@ package principal;
 public class Factura1 {
     private int id2;
     private int entrada;
-    private String placa1;
+    private int salida;
+
+    private String placa;
 
     public int getId2() {
         return id2;
@@ -20,9 +22,13 @@ public class Factura1 {
     public int getEntrada() {
         return entrada;
     }
+    
+    public int getSalida() {
+        return salida;
+    }
 
-    public String getPlaca1() {
-        return placa1;
+    public String getPlaca() {
+        return placa;
     }
 
     public void setId2(int id2) {
@@ -32,9 +38,13 @@ public class Factura1 {
     public void setEntrada(int entrada) {
         this.entrada = entrada;
     }
+    
+    public void setSalida(int salida) {
+        this.salida = salida;
+    }
 
-    public void setPlaca1(String placa1) {
-        this.placa1 = placa1;
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
             
 }

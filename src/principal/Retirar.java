@@ -16,6 +16,6 @@ public class Retirar {
     }
 
     public void setPlaca(String placa) {
-        this.placa = placa;
+        this.placa=placa;
     }
 }
