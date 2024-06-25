@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.Timer;
 import java.util.TimerTask;
 import DAO.RetirarDAO;
-import principal.Retirar;
+
 /**
  *
  * @author delga
@@ -556,10 +556,30 @@ public class inicio extends javax.swing.JFrame {
     }    }//GEN-LAST:event_FacturarActionPerformed
 
     private void Retirar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Retirar2ActionPerformed
-        String placa = plaquita.getText(); // Obtén el texto del JTextField
-        Retirar retirar = new Retirar(placa); // Crea un objeto Retirar con la placa
-        RetirarDAO retirarDAO = new RetirarDAO(); // Crea una instancia de RetirarDAO
-        retirarDAO.retirarVehiculo(retirar); // Llama al método retirarVehiculo
+        
+       // Obtén el texto del JTextField
+String placa = plaquita.getText(); 
+
+// Verifica que la placa no sea nula o vacía
+if (placa != null && !placa.isEmpty()) {
+    System.out.println("Placa obtenida: " + placa); // Declaración de depuración
+    Retirar retirarVehiculo = new Retirar();
+    retirarVehiculo.setPlaca(placa);
+    System.out.println("Placa en objeto Retirar: " + retirarVehiculo.getPlaca()); // Declaración de depuración
+
+    // Crear instancia de RetirarDAO
+    RetirarDAO retirarDAO = new RetirarDAO();
+
+    // Llamar al método retirarVehiculo
+    retirarDAO.retirarVehiculo(retirarVehiculo);
+} else {
+    // Maneja el caso donde la placa es nula o vacía
+    System.out.println("La placa no puede estar vacía.");
+
+    
+    plaquita.setText("");
+    actualizarTabla();
+}
     }//GEN-LAST:event_Retirar2ActionPerformed
     /**
      */
@@ -577,7 +597,7 @@ public class inicio extends javax.swing.JFrame {
 
         String url = "jdbc:mysql://localhost:3306/parqueadero";
         String userid = "root";
-        String password = "Alejandro134456QW_";
+        String password = "David%2006";
         String sql = "SELECT e.espacio_id, e.disponible, c.placa " +
                      "FROM Espacio e " +
                      "LEFT JOIN Entrada en ON e.espacio_id = en.espacio_id " +

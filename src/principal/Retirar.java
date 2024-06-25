@@ -9,15 +9,8 @@ package principal;
  * @author delga
  */
 public class Retirar {
-    
-    
     private String placa;
 
-        public Retirar(String placa) {
-        this.placa = placa;
-    }
-    
-    
     public String getPlaca() {
         return placa;
     }
@@ -25,6 +18,4 @@ public class Retirar {
     public void setPlaca(String placa) {
         this.placa = placa;
     }
-
-
 }

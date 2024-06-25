@@ -9,11 +9,12 @@ import principal.Retirar;
 public class RetirarDAO {
     private final String url = "jdbc:mysql://localhost:3306/parqueadero";
     private final String userid = "root";
-    private final String password = "Alejandro134456QW_";
+    private final String password = "David%2006";
 
     public void retirarVehiculo(Retirar retirar) {
         try (Connection connection = DriverManager.getConnection(url, userid, password)) {
             String placaIngresada = retirar.getPlaca(); // Obtener la placa ingresada
+            System.out.println("Placa en PreparedStatement: " + placaIngresada); // Declaración de depuración
 
             // Actualizar la disponibilidad del espacio y eliminar la placa
             String updateEspacioQuery = "UPDATE Espacio e " +
