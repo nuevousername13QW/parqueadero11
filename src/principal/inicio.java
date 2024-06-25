@@ -415,6 +415,8 @@ public class inicio extends javax.swing.JFrame {
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Espacios del Parqueadero");
 
+        jScrollPane1.setAutoscrolls(true);
+
         jTable1.setBackground(new java.awt.Color(217, 217, 217));
         jTable1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
@@ -442,7 +444,6 @@ public class inicio extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setAutoscrolls(false);
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTable1.setSelectionBackground(new java.awt.Color(153, 153, 255));
         jScrollPane1.setViewportView(jTable1);
